@@ -14,56 +14,14 @@
 1) Поменять отношения моделей `Student` и `Teacher` с `Foreign key` на `Many to many`
 2) Поправить шаблон списка учеников с учетом изменения моделей
 
-## Подсказки
+- Изменить связь с `ForeignKey` на `ManyToManyField`.
+- Реализовать отображение нескольких учителей у одного ученика.
+- Оптимизировать запросы с помощью `prefetch_related`.
 
-Для смены связи достаточно поменять поле модели с `ForeignKey` на `ManyToManyField`.
-К полю `ManyToManyField` добавить параметр `related_name='students'` чтобы можно было получить список студентов у одного учителя.
-После смены поля, необходимо создать новую миграцию и применить её к базе данных.
+## Технологии
+- Python 3.11
+- Django 3.2.24
+- PostgreSQL
+- django-debug-toolbar
 
-В шаблоне, для отображения всех учителей ученика, можно использовать вложенный цикл:
-
-```html
-{% for obj_teacher in object.teachers.all %}
-    <p>{{ obj_teacher.name }}</p>
-    ...
-{% endfor %}
-```
-
-
-Более подробно примеры как работать с `ManyToManyField` можно посмотреть в документации Django.
-https://docs.djangoproject.com/en/dev/ref/contrib/admin/#working-with-many-to-many-models
-
-## Дополнительное задание
-
-Проанализируйте число sql-запросов (напоминание: для этого можно использовать `django-debug-toolbar`) Для каждого студента будет выполняться отдельный запрос. Это не очень производительное решение - улучшите его с помощью `prefetch_related`.
-
-
-## Документация по проекту
-
-Для запуска проекта необходимо:
-
-Установить зависимости:
-
-```bash
-pip install -r requirements.txt
-```
-
-
-Провести миграцию:
-
-```bash
-python manage.py migrate
-```
-
-Загрузить тестовые данные:
-
-```bash
-python manage.py loaddata school.json
-```
-
-
-Запустить отладочный веб-сервер проекта:
-
-```bash
-python manage.py runserver
-```
+## Как запустить
