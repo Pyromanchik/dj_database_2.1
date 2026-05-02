@@ -1,0 +1,10 @@
+<h1>Список учеников</h1>
+
+{% for student in students %}
+    <div>
+        <h3>{{ student.name }}</h3>
+        {% for teacher in student.teachers.all %}
+            <p>{{ teacher.name }}: {{ teacher.subject }}</p>
+        {% endfor %}
+    </div>
+{% endfor %}

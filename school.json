@@ -1,0 +1,34 @@
+[
+  {
+    "model": "school.teacher",
+    "pk": 1,
+    "fields": {
+      "name": "Иванов Петр",
+      "subject": "Математика"
+    }
+  },
+  {
+    "model": "school.teacher",
+    "pk": 2,
+    "fields": {
+      "name": "Сидорова Мария",
+      "subject": "Физика"
+    }
+  },
+  {
+    "model": "school.student",
+    "pk": 1,
+    "fields": {
+      "name": "Бабаева Вера Ивановна",
+      "teachers": [1, 2]
+    }
+  },
+  {
+    "model": "school.student",
+    "pk": 2,
+    "fields": {
+      "name": "Осипов Иван Вячеславович",
+      "teachers": [1]
+    }
+  }
+]
